@@ -6,8 +6,6 @@ import { LocationStrategy } from '@angular/common';
   TODO - 
     Web server. 
     Dynamic background based on time of day. 
-    Add icon for webpage.
-    Remove placeholder text on page loading. 
 */
 
 @Component({
