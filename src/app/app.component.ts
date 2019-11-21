@@ -82,29 +82,8 @@ export class AppComponent implements AfterViewInit {
     });
 
     this.locate();    //Start with user location => locate & call API with user coordinates. 
-    this.testAPI();
-    this.testAPI2();
-  }
-
-
-  public testAPI2() {
-    fetch("/api/emergency/"+123)
-    .then(data => {
-      return data.json();
-    })
-    .then(jsonData => {
-      console.log(jsonData);
-    })
-  }
-
-  public testAPI() {
-    fetch('/api/name')
-    .then(data => {
-      return data.json()
-    })
-    .then(jsonData => {
-      console.log(jsonData);
-    })
+  // this.testAPI();
+   // this.testAPI2();
   }
 
 
@@ -157,10 +136,10 @@ export class AppComponent implements AfterViewInit {
         })
         .then(data => {
           console.log(data);
-          // this.rawTemperature = this.roundDigits(data.main.temp);
-          // this.condition = data.weather[0].main;
-          // this.city = data.name;
-          // this.iconID = data.weather[0].icon;
+          this.rawTemperature = this.roundDigits(data.main.temp);
+          this.condition = data.weather[0].main;
+          this.city = data.name;
+          this.iconID = data.weather[0].icon;
           this.updateUI()         //Once all the data has been retrieved, we can update the UI. 
         });
   }
@@ -229,5 +208,34 @@ export class AppComponent implements AfterViewInit {
     return Math.round(temp * 100) / 100;
   }
 
+
+
  
 }
+
+
+
+
+
+
+
+
+  // public testAPI2() {
+  //   fetch("/api/emergency/"+123)
+  //   .then(data => {
+  //     return data.json();
+  //   })
+  //   .then(jsonData => {
+  //     console.log(jsonData);
+  //   })
+  // }
+
+  // public testAPI() {
+  //   fetch('/api/name')
+  //   .then(data => {
+  //     return data.json()
+  //   })
+  //   .then(jsonData => {
+  //     console.log(jsonData);
+  //   })
+  // }
