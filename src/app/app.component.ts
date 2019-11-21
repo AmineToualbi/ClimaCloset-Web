@@ -19,13 +19,7 @@ export class AppComponent implements AfterViewInit {
   //Endpoint URLs for web server. 
   public API_URL_GPS: string = "/api/weather/";
   public API_URL_CITY: string = "/api/weather/";
-
-  //URLs + key needed for API calls. 
-  public API_KEY: string = "8300f2d4182612b5d44c3fcb22ca0acc";
- // public API_URL_GPS: string = "https://api.openweathermap.org/data/2.5/weather?lat=";
-  // public API_URL_CITY: string = "https://api.openweathermap.org/data/2.5/weather?q=";
   public ICON_URL: string = "http://openweathermap.org/img/wn/";
-  public proxy: string = "https://cors-anywhere.herokuapp.com/";   //proxy needed to go around http request error. 
 
   //Image path to retrieve graphics. 
   public imagePath: string = "../assets/graphics/outfits/"
@@ -82,8 +76,6 @@ export class AppComponent implements AfterViewInit {
     });
 
     this.locate();    //Start with user location => locate & call API with user coordinates. 
-  // this.testAPI();
-   // this.testAPI2();
   }
 
 
@@ -116,11 +108,9 @@ export class AppComponent implements AfterViewInit {
     var API_URL = "";
     if(city === "") {
       API_URL = this.API_URL_GPS+lat+"/"+long;
-      // API_URL = this.proxy+this.API_URL_GPS+lat+"&lon="+long+"&appid="+this.API_KEY;
     }
     else {
       API_URL = this.API_URL_CITY+city
-      //API_URL = this.proxy+this.API_URL_CITY+city+"&appid="+this.API_KEY;
     }
     
     this.fetchAPI(API_URL);
@@ -208,34 +198,6 @@ export class AppComponent implements AfterViewInit {
     return Math.round(temp * 100) / 100;
   }
 
-
-
  
 }
 
-
-
-
-
-
-
-
-  // public testAPI2() {
-  //   fetch("/api/emergency/"+123)
-  //   .then(data => {
-  //     return data.json();
-  //   })
-  //   .then(jsonData => {
-  //     console.log(jsonData);
-  //   })
-  // }
-
-  // public testAPI() {
-  //   fetch('/api/name')
-  //   .then(data => {
-  //     return data.json()
-  //   })
-  //   .then(jsonData => {
-  //     console.log(jsonData);
-  //   })
-  // }

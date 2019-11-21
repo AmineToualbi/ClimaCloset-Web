@@ -14,12 +14,12 @@ app.use(express.static(_app_folder));
 var API_KEY = "8300f2d4182612b5d44c3fcb22ca0acc";
 var API_URL_GPS = "https://api.openweathermap.org/data/2.5/weather?lat=";
 var API_URL_CITY = "https://api.openweathermap.org/data/2.5/weather?q=";
-var proxy = "https://cors-anywhere.herokuapp.com/";  
-
 
 app.listen(port, () => console.log(`Server running at http://localhost:${port}`));
 module.exports = app;
 
+
+//Endpoint for API call with GPS coordinates. 
 app.get('/api/weather/:lat/:long', (req, res, next) => {
     var lat = req.params.lat; 
     var long = req.params.long; 
@@ -33,9 +33,9 @@ app.get('/api/weather/:lat/:long', (req, res, next) => {
         console.log(data);
         res.json(data); 
     })
-
 })
 
+//Endpoint for API call with city. 
 app.get('/api/weather/:city', (req, res, next) => {
     var city = req.params.city; 
     var requestURL = API_URL_CITY+city+"&appid="+API_KEY;
@@ -48,24 +48,4 @@ app.get('/api/weather/:city', (req, res, next) => {
         console.log(data);
         res.json(data);
     })
-})
-
-app.get('/api/emergency/:id', (req, res, next) => {
-    var id = req.params.id;
-    console.log('The id: ' + id);
-    let myID = {
-        value: id
-    };
-    res.json(myID);
-});
-
-
-app.get('*.ico', function(){})
-
-app.get('/api/name', (req, res) => {
-    let myName = {
-        name: "Amine TOUALBI"
-    };
-
-    res.json(myName);
 })
