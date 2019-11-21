@@ -63,7 +63,7 @@ export class AppComponent implements AfterViewInit {
 
     //Focus is when you are inside the search_bar => extend bar. 
     this.searchBar.addEventListener('focus', () => {
-      this.searchBar.parentElement.style.width = '220px';
+      this.searchBar.parentElement.style.width = '250px';
       this.searchBar.parentElement.style.marginRight = '0px';
     });
 

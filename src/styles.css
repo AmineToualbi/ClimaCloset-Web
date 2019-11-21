@@ -79,7 +79,7 @@ body {
 }
 
 .search:active, .search:hover {
-    width: 200px;
+    width: 250px;
 	margin-right: 0px;
 }
 /* .search::after {
