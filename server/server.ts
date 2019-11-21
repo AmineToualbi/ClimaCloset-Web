@@ -5,7 +5,7 @@ const express = require('express');
 const compression = require("compression");
 const _app_folder = 'dist/climacloset';
 const app = express();
-const fetcher = require('cross-fetch');
+const fetcher = require('node-fetch');
 
 const port = 3000;
 app.use(compression());
@@ -28,7 +28,6 @@ app.get('/api/weather/:lat/:long', (req, res, next) => {
     fetcher(requestURL)
     .then(response => {
        return response.json();
-       //return response.text();
     })
     .then(data => {
         console.log(data);
@@ -39,10 +38,7 @@ app.get('/api/weather/:lat/:long', (req, res, next) => {
 
 app.get('/api/weather/:city', (req, res, next) => {
     var city = req.params.city; 
-    let cityJSON = {
-        city: city
-    }
-    res.json(cityJSON);
+   // var requestURL = 
 })
 
 app.get('/api/emergency/:id', (req, res, next) => {
