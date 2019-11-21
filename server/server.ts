@@ -38,7 +38,16 @@ app.get('/api/weather/:lat/:long', (req, res, next) => {
 
 app.get('/api/weather/:city', (req, res, next) => {
     var city = req.params.city; 
-   // var requestURL = 
+    var requestURL = API_URL_CITY+city+"&appid="+API_KEY;
+
+    fetcher(requestURL)
+    .then(response => {
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
+        res.json(data);
+    })
 })
 
 app.get('/api/emergency/:id', (req, res, next) => {
