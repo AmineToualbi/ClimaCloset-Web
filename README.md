@@ -1,27 +1,21 @@
 # Climacloset
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.12.
+Clima Closet is an application targeted towards children to teach them how to dress according to the weather. Based on the conditions and temperature, Clima Closet suggests an outfit to wear. 
 
-## Development server
+## How to Run
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Use `npm run build` to build the project & have it ready for the server.
+Use `npm run express` to launch the server. 
 
-## Code scaffolding
+## Technologies Used
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. HTML5 => was used to build the structure of the web page. 
+2. CSS => was used to build the layout of the web page. 
+3. TypeScript => the app is built using TypeScript & Angular. 
+4. Frameworks => the app uses Angular & Express.
+5. NodeJS => the web server runs using Node & Express. 
+6. Web server => our web server serves the files & handles the backend of the app with custom endpoints. 
+7. Fetching data => fetch & node-fetch APIs are used to make API calls to our web server that makes calls to OpenWeatherMap's API. 
+8. Extra => the app uses GPS location to get the user's coordinates on loading. 
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
