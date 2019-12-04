@@ -65,13 +65,16 @@ export class AppComponent implements AfterViewInit {
     this.searchBar.addEventListener('focus', () => {
       this.searchBar.parentElement.style.width = '250px';
       this.searchBar.parentElement.style.marginRight = '0px';
+      
     });
 
     //Blur is when you are not clicked inside the search_bar => reduce bar. 
     this.searchBar.addEventListener('blur', () => {
       if(this.searchBar.value.length === 0) {
         this.searchBar.parentElement.style.width = '35px';
-        this.searchBar.parentElement.style.marginRight = '0px';
+        this.searchBar.parentElement.style.marginRight = '0px'; 
+        this.searchBar.parentElement.style.border = "3px solid white";
+        this.searchBar.parentElement.style.background = "transparent";      
       }
     });
 
@@ -82,7 +85,6 @@ export class AppComponent implements AfterViewInit {
   //Locate user on startup. 
   public locate() {    
     if(navigator.geolocation) {     //If we can retrieve the location
-
       let lat = navigator.geolocation.getCurrentPosition(position => {
         let lat: number = position.coords.latitude;
         let long: number = position.coords.longitude;
@@ -107,6 +109,7 @@ export class AppComponent implements AfterViewInit {
   public buildURL(lat: number, long: number, city: string) {
     var API_URL = "";
     if(city === "") {
+      console.log(lat + " " + long);
       API_URL = this.API_URL_GPS+lat+"/"+long;
     }
     else {
@@ -126,11 +129,19 @@ export class AppComponent implements AfterViewInit {
         })
         .then(data => {
           console.log(data);
-          this.rawTemperature = this.roundDigits(data.main.temp);
-          this.condition = data.weather[0].main;
-          this.city = data.name;
-          this.iconID = data.weather[0].icon;
-          this.updateUI()         //Once all the data has been retrieved, we can update the UI. 
+
+          if(data.cod === "404") {
+            this.searchBar.parentElement.style.border = "3px solid red";     
+          }
+          else {
+            this.searchBar.parentElement.style.border = "3px solid white";
+            this.searchBar.parentElement.style.background = "transparent";
+            this.rawTemperature = this.roundDigits(data.main.temp);
+            this.condition = data.weather[0].main;
+            this.city = data.name;
+            this.iconID = data.weather[0].icon;
+            this.updateUI()         //Once all the data has been retrieved, we can update the UI. 
+          }
         });
   }
 
