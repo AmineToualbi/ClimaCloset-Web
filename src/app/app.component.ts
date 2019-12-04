@@ -2,12 +2,6 @@ import {AfterViewInit, Component, Inject, APP_ID} from '@angular/core';
 import { callbackify } from 'util';
 import { LocationStrategy } from '@angular/common';
 
-/*
-  TODO - 
-    Web server. 
-    Dynamic background based on time of day. 
-*/
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -115,7 +109,6 @@ export class AppComponent implements AfterViewInit {
     else {
       API_URL = this.API_URL_CITY+city
     }
-    
     this.fetchAPI(API_URL);
   }
 
