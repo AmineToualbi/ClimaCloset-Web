@@ -5,7 +5,6 @@ const express = require('express');
 const compression = require("compression");
 const _app_folder = 'dist/climacloset';
 const app = express();
-const fetcher = require('node-fetch');
 const fetcha = require('cross-fetch');
 
 const port = 3000;
@@ -25,7 +24,6 @@ app.get('/api/weather/:lat/:long', (req, res, next) => {
     var lat = req.params.lat; 
     var long = req.params.long; 
     var requestURL = API_URL_GPS +lat+"&lon="+long+"&appid="+API_KEY; 
-    
     fetcha(requestURL)
     .then(response => {
        return response.json();

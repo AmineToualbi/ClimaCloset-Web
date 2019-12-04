@@ -84,7 +84,6 @@ export class AppComponent implements AfterViewInit {
         let long: number = position.coords.longitude;
         this.buildURL(lat, long, "");     //Once we have coordinates => build URL for API call. 
       });
-
     }
     else {
       this.cityTag.innerHTML = "Cannot retrieve location."
